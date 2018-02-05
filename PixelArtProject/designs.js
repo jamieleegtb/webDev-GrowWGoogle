@@ -23,6 +23,7 @@ $(document).ready(function(){
 
     // TODO: On click adds selected background color to columns.
     $('body').on('click', 'td', function(event){
+        // Color Variable
         var color = $('#colorPicker').val();
         $(this).css('background-color', color);
     });
@@ -31,6 +32,11 @@ $(document).ready(function(){
     $('#sizePicker').submit(function(event){
         event.preventDefault();
         makeGrid();
+    });
+
+    //TODO: Reset page.
+    $('#resetBtn').click(function(){
+        location.reload();
     });
 
     makeGrid();
