@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+
+* {
+  font-family: 'Roboto', sans-serif !important;
+  color: #2d3c49;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+}
+
+header, nav, footer, section, article, div {
+  box-sizing: border-box;
+}
+
+ol, ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.flexbox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.center {
+  text-align: center;
+}
+
+div#container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 960px;
+  min-width: 320px;
+}
+
+div.mainBody {
+    margin: 20px 20px 60px 20px;
+}
+
+div#header {
+  margin: 0px 20px 30px 20px;
+  justify-content: space-between;
+}
+
+div#header .logo {
+  width: 9%;
+}
+
+div#header .logo img {
+  max-width: 100px;
+}
+
+div#header .headerLeft {
+  width: 50%;
+}
+
+div#header .headerLeft h1,
+div#header .headerLeft p {
+  text-align: right;
+}
+
+div#header .headerLeft h1 {
+  font-weight: 700;
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+div#header .headerLeft p {
+  font-weight: 400;
+  font-size: 1.5em;
+}
+
+div.divider {
+  height: 2px;
+  background-color: #7d97ad;
+}
+
+section.hero {
+  margin: 30px 0px 20px 0px;
+  width: 100%;
+  position: relative;
+  background-image: url("https://placeimg.com/960/480/tech?t=1525665856545");
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+}
+
+section.hero article {
+  box-sizing: border-box;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  bottom: 0;
+  height: 30%;
+  width: 100%;
+  padding: 1em;
+}
+
+section.hero article h2 {
+  color: #fefefe;
+  font-size: 1.8em;
+  font-weight: 700;
+}
+
+section.hero article p {
+  color: #efefef;
+}
+
+div#mainfeatured {
+  padding: 1em;
+}
+
+div#mainfeatured h2{
+  width: 100%;
+  font-size: 2em;
+  font-weight: 700;
+  color: #7d97ad;
+  margin-bottom: 20px;
+}
+
+div#mainfeatured {
+  justify-content: space-between;
+}
+
+div.featured {
+  width: 30%;
+  margin-bottom: 20px;
+}
+p.pTitle {
+  font-size: 1.8em;
+  margin-bottom: 5px;
+}
+p.pLink a {
+  text-decoration: none;
+  color: #02b3e4;
+}
+
+@media screen and (max-width:600px){
+  .hide {
+    display: none;
+  }
+  .linebreak {
+    display: block;
+  }
+  div#header .logo,
+  div#header .headerLeft,
+  div#header .headerLeft h1,
+  div#header .headerLeft p
+   {
+    width: 100%;
+    text-align: center;
+  }
+  div.featured {
+    width: 100%;
+  }
+  section.hero article {
+    height: 50%;
+    -webkit-transition: height 2s;
+    -moz-transition: height 2s;
+    transition: height 2s;
+  }
+}
+@media screen and (max-width:414px){
+  section.hero article {
+    height: 55%;
+    -webkit-transition: height 2s;
+    -moz-transition: height 2s;
+    transition: height 2s;
+  }
+}
+@media screen and (max-width:375px){
+  section.hero {
+    height: 500px;
+  }
+  section.hero article {
+    height: 55%;
+    -webkit-transition: height 2s;
+    -moz-transition: height 2s;
+    transition: height 2s;
+  }
+}
+@media screen and (max-width:320px){
+  section.hero article {
+    height: 65%;
+    -webkit-transition: height 2s;
+    -moz-transition: height 2s;
+    transition: height 2s;
+  }
+}
