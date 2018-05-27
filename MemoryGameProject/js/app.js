@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
-const cards = ['fa-diamond', 'fa-diamond',
+let cards = ['fa-diamond', 'fa-diamond',
              'fa-paper-plane-o', 'fa-paper-plane-o',
              'fa-anchor', 'fa-anchor',
              'fa-bolt', 'fa-bolt',
@@ -69,7 +69,12 @@ const moveCounter = document.querySelector('.moves');
 moveCounter.innerText = moves;
 //Stars
 const stars = document.querySelectorAll('.fa-star');
-
+//Counter for matched cards
+let matchCounter = 0;
+//Win & Lose Screen
+const screen = document.getElementById('screen');
+const win = document.getElementById('win');
+const lose = document.getElementById('lose');
 
 $(document).ready(function(){
   //TODO: Reset page.
@@ -90,42 +95,28 @@ allCards.forEach(function(card){
         //Adds 'open' & 'show' classes to cards after click
         card.classList.add('open', 'show', 'flipInY');
         card.classList.remove('shake')
-
         //Start timer
-        if (moves >= 0) {
-          //Timer
-          let sec = 0;
-          function pad (val){
-            return val > 9 ? val : "0" + val;
-          }
-          setInterval(function() {
-            let seconds = pad(++sec%60);
-            let minutes = pad(parseInt(sec/60,10));
-            document.getElementById("timer").innerHTML = minutes + " : " + seconds;
-          }, 1000);
-        //Removing stars
-        } else if (moves === 16) {
+        if (moves === 16) {
           stars[0].remove();
-        } else if (moves === 32) {
+        } else if (moves === 24) {
           stars[1].remove();
-        } else if (moves === 48) {
+        } else if (moves === 32) {
           stars[2].remove();
+          screen.style.display = "block";
+          lose.style.display = "block";
         }
 
         if (openCards.length == 2){
           //Check if cards match
           if (openCards[0].dataset.card == openCards[1].dataset.card){
-              openCards[0].classList.add('match');
-              openCards[0].classList.add('open');
-              openCards[0].classList.add('show');
-              openCards[0].classList.add('flipInY');
-
-              openCards[1].classList.add('match');
-              openCards[1].classList.add('open');
-              openCards[1].classList.add('show');
-              openCards[1].classList.add('flipInY');
-
+              openCards[0].classList.add('match', 'open', 'show', 'flipInY');
+              openCards[1].classList.add('match', 'open', 'show', 'flipInY');
+              matchCounter++;
               openCards = [];
+              if (matchCounter === 8) {
+                screen.style.display = "block";
+                win.style.display = "block";
+              }
           } else {
               //'open' & 'show' classes will be deleted from cards after 1 second
               //If cards don't match - go away
