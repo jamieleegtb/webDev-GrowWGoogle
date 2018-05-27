@@ -108,9 +108,12 @@ h1 {
     cursor: pointer;
 }
 
-.fa-repeat {
+#timer {
   margin-left: 10px;
 }
+
+
+
 
 /*
  * Responsive

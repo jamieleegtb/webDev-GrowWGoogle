@@ -63,15 +63,13 @@ initGame();
 const allCards = document.querySelectorAll('.card');
 //Empty array for open cards
 let openCards = [];
-//Timer
-let seconds = 0;
-let minutes = 0;
 //Move counter
 let moves = 0;
 const moveCounter = document.querySelector('.moves');
 moveCounter.innerText = moves;
-//stars
+//Stars
 const stars = document.querySelectorAll('.fa-star');
+
 
 $(document).ready(function(){
   //TODO: Reset page.
@@ -80,10 +78,12 @@ $(document).ready(function(){
   });
 });
 
+
+
+
 allCards.forEach(function(card){
     //With eventlistener 'click' function added to all cards
     card.addEventListener('click', function(e){
-
       //Checking if the card has 'open' & 'show' class
       if ((!card.classList.contains('open') || !card.classList.contains('show')) && !card.classList.contains('match')){
         openCards.push(card);
@@ -91,8 +91,20 @@ allCards.forEach(function(card){
         card.classList.add('open', 'show', 'flipInY');
         card.classList.remove('shake')
 
+        //Start timer
+        if (moves >= 0) {
+          //Timer
+          let sec = 0;
+          function pad (val){
+            return val > 9 ? val : "0" + val;
+          }
+          setInterval(function() {
+            let seconds = pad(++sec%60);
+            let minutes = pad(parseInt(sec/60,10));
+            document.getElementById("timer").innerHTML = minutes + " : " + seconds;
+          }, 1000);
         //Removing stars
-        if (moves === 16) {
+        } else if (moves === 16) {
           stars[0].remove();
         } else if (moves === 32) {
           stars[1].remove();
